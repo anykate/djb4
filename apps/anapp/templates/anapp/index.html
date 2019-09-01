@@ -1,0 +1,30 @@
+{% comment %} {% extends '_base.html' %} {% endcomment %}
+{% load static %}
+
+{# Load the tag library #}
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block title %}
+	MyAPP | Home
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+	<h1>Hello World!</h1>
+		<form method="post" class="form">
+			{% csrf_token %}
+			{% bootstrap_form form %}
+			{% buttons %}
+				<button type="submit" class="btn btn-primary">
+					Submit
+				</button>
+			{% endbuttons %}
+		</form>
+		{# Display django.contrib.messages as Bootstrap alerts #}
+		{% bootstrap_messages %}
+	</div>
+{% endblock %}
